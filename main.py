@@ -16,19 +16,19 @@ print("Loading zad 1/", zad); zad +=1
 import count as T01
 
 print("Loading zad 2/", zad); zad +=1
-# import median as T02
+import median as T02
 
 print("Loading zad 3/", zad); zad +=1
-# import std as T03
+import std as T03
 
 print("Loading zad 4/", zad); zad +=1
-# import max_min as T04
+import max_min as T04
 
 print("Loading zad 5/", zad); zad +=1
-# import quantile as T05
+import quantile as T05
 
 print("Loading zad 6/", zad); zad +=1
-#import mean as T06
+import mean as T06
 
 print("Loading zad 6/", zad); zad +=1
 #import bollinger as T06
