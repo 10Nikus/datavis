@@ -1,13 +1,15 @@
 import pandas as pd
 from tkinter import messagebox
 
-def click_fun(win, Mlabel):
+
+def click_fun(win, Mlabel, df, name):
     try:
-        df = pd.read_csv('data/sample_stock_data.csv')
-        std = df['Volume'].std()
-        Mlabel.config(text=f"Standard deviation: {std}")
+        
+        std = df[name].std()
+        Mlabel.config(text=f"Standard deviation of {name}: {std}")
         
     except FileNotFoundError:
-        messagebox.showerror("Błąd", "Nie znaleziono pliku: data/sample_stock_data.csv")
+        messagebox.showerror("Błąd", "Nie znaleziono pliku. Zaimportuj plik")
+        
     except Exception as e:
         messagebox.showerror("Błąd", f"Wystąpił problem: {e}")
