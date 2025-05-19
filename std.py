@@ -1,9 +1,9 @@
 import pandas as pd
 from tkinter import messagebox
 
-def click_fun(win, Mlabel):
+def click_fun(win, Mlabel, df):
     try:
-        df = pd.read_csv('data/sample_stock_data.csv')
+        
         std = df['Volume'].std()
         Mlabel.config(text=f"Standard deviation: {std}")
         

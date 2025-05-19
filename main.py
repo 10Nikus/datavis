@@ -9,28 +9,34 @@
 
 from tkinter import *
 from tkinter import ttk
-from tkinter import constants, messagebox
+from tkinter import messagebox
+from importer import import_csv
+
+def assign_data():
+    global data
+    data = import_csv()
+
 
 zad = 1
-print("Loading zad 1/", zad); zad +=1
+print("Loading zad 1/", zad); zad += 1
 import count as T01
 
-print("Loading zad 2/", zad); zad +=1
+print("Loading zad 2/", zad); zad += 1
 import median as T02
 
-print("Loading zad 3/", zad); zad +=1
+print("Loading zad 3/", zad); zad += 1
 import std as T03
 
-print("Loading zad 4/", zad); zad +=1
+print("Loading zad 4/", zad); zad += 1
 import max_min as T04
 
-print("Loading zad 5/", zad); zad +=1
+print("Loading zad 5/", zad); zad += 1
 import quantile as T05
 
-print("Loading zad 6/", zad); zad +=1
+print("Loading zad 6/", zad); zad += 1
 import mean as T06
 
-print("Loading zad 6/", zad); zad +=1
+print("Loading zad 6/", zad); zad += 1
 #import bollinger as T06
 
 win = Tk()
@@ -59,21 +65,28 @@ MStatus = Label(win, text="...", font=('Arial', 14))
 MStatus.grid(row=5, columnspan=5)
 #Mlabel.pack(pady=40)
 
+
 # Create commands buttons
-ttk.Button(win, text="[  count   ]", command=lambda: T01.click_fun(win, Mlabel)).grid(row=1, column=0, **grid_opt)
-ttk.Button(win, text="[  median   ]", command=lambda: T02.click_fun(win, Mlabel)).grid(row=1, column=1, **grid_opt)
-ttk.Button(win, text="[  std   ]", command=lambda: T03.click_fun(win, Mlabel)).grid(row=1, column=2, **grid_opt)
-ttk.Button(win, text="[  min max   ]", command=lambda: T04.click_fun(win, Mlabel)).grid(row=2, column=0, **grid_opt)
-ttk.Button(win, text="[  quantile   ]", command=lambda: T05.click_fun(win, Mlabel)).grid(row=2, column=1, **grid_opt)
-ttk.Button(win, text="[  mean   ]", command=lambda: T06.click_fun(win, Mlabel)).grid(row=2, column=2, **grid_opt)
-ttk.Button(win, text="[  bollinger   ]", command=lambda: T07.click_fun(win, Mlabel)).grid(row=3, column=0, **grid_opt)
-ttk.Button(win, text="[  costam   ]", command=lambda: T07.click_fun(win, Mlabel)).grid(row=3, column=1, **grid_opt)
-ttk.Button(win, text="[  costam   ]", command=lambda: T07.click_fun(win, Mlabel)).grid(row=3, column=2, **grid_opt)
+
+ttk.Button(win, text="[  count   ]", command=lambda: T01.click_fun(win, Mlabel, data)).grid(row=1, column=0, **grid_opt)
+ttk.Button(win, text="[  median   ]", command=lambda: T02.click_fun(win, Mlabel, data)).grid(row=1, column=1, **grid_opt)
+ttk.Button(win, text="[  std   ]", command=lambda: T03.click_fun(win, Mlabel, data)).grid(row=1, column=2, **grid_opt)
+ttk.Button(win, text="[  min max   ]", command=lambda: T04.click_fun(win, Mlabel, data)).grid(row=2, column=0, **grid_opt)
+ttk.Button(win, text="[  quantile   ]", command=lambda: T05.click_fun(win, Mlabel, data)).grid(row=2, column=1, **grid_opt)
+ttk.Button(win, text="[  mean   ]", command=lambda: T06.click_fun(win, Mlabel, data)).grid(row=2, column=2, **grid_opt)
+ttk.Button(win, text="[  bollinger   ]", command=lambda: T07.click_fun(win, Mlabel, data)).grid(row=3, column=0, **grid_opt)
+ttk.Button(win, text="[  costam   ]", command=lambda: T07.click_fun(win, Mlabel, data)).grid(row=3, column=1, **grid_opt)
+ttk.Button(win, text="[  costam   ]", command=lambda: T07.click_fun(win, Mlabel, data)).grid(row=3, column=2, **grid_opt)
 
 
 #=====================
 ttk.Button(win, text="[ O programie: ]", command=About).grid(row=4,column=0, columnspan = 2 )
 ttk.Button(win, text="[    Zamknij   ]", command=Quit).grid(row=4, column=1, columnspan = 2)
+ttk.Button(win, text="[ Import CSV ]", command=assign_data).grid(row=4, column=1, columnspan=2)
+
+
+
+
 win.bind("<KeyPress-Escape>", Quit)
 win.protocol("WM_DELETE_WINDOW", Quit)
 # start interface:

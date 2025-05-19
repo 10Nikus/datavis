@@ -1,7 +1,7 @@
 import pandas as pd
 from tkinter import messagebox
 
-def click_fun(win, Mlabel):
+def click_fun(win, Mlabel, df):
     try:
         df = pd.read_csv('data/sample_stock_data.csv')
         count = df['Volume'].count()
