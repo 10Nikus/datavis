@@ -1,6 +1,6 @@
 import pandas as pd
 from tkinter import messagebox
-from importer import assign_data
+
 
 def click_fun(win, Mlabel, df, name):
     try:

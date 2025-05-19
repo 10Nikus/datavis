@@ -9,14 +9,23 @@
 
 from tkinter import *
 from tkinter import ttk
-from tkinter import messagebox
-from importer import assign_data
-
-global data
-global name
+from tkinter import messagebox, StringVar
+from importer import import_csv
 
 
 
+def assign_data():
+  global data
+  global name
+
+  data = import_csv()
+  if data is not None:
+     if len(data.columns) > 1:
+      name.set(data.columns[1])
+     else:
+      name.set(data.columns[0])
+     print("zaimportowano dane")
+       
 
 zad = 1
 print("Loading zad 1/", zad); zad += 1
@@ -41,6 +50,7 @@ print("Loading zad 6/", zad); zad += 1
 #import bollinger as T06
 
 win = Tk()
+name = StringVar()
 # win.geometry("400x200")
 # win.minsize(400,200)
 # # win.maxsize(400,200)
@@ -53,6 +63,25 @@ def Quit(*event):
 
 def NoModule():
   messagebox.showinfo('ERROR', 'Module is improperly implemented, run directly')
+
+
+
+def openTopLevel():
+  top = Toplevel(win)
+  top.title("Top Level Window")
+
+  def setName(word):
+    name.set(word)
+    top.destroy()
+
+  label = Label(top, text="Change data to be analyzed")
+  label.pack(pady=20)
+  columns = data.columns[1:]
+  for col in columns:
+    Button(top, text=col, command=lambda c=col: setName(c)).pack(pady=5)
+  
+  Button(top, text = "Exit", command = top.destroy).pack()
+
 
 # options for buttons
 ## for pack: button_opt = {'fill': constants.BOTH, 'padx': 15, 'pady': 5}
@@ -69,26 +98,30 @@ MStatus.grid(row=5, columnspan=5)
 
 # Create commands buttons
 
-ttk.Button(win, text="[  count   ]", command=lambda: T01.click_fun(win, Mlabel, data, name)).grid(row=1, column=0, **grid_opt)
-ttk.Button(win, text="[  median   ]", command=lambda: T02.click_fun(win, Mlabel, data, name)).grid(row=1, column=1, **grid_opt)
-ttk.Button(win, text="[  std   ]", command=lambda: T03.click_fun(win, Mlabel, data, name)).grid(row=1, column=2, **grid_opt)
-ttk.Button(win, text="[  min max   ]", command=lambda: T04.click_fun(win, Mlabel, data, name)).grid(row=2, column=0, **grid_opt)
-ttk.Button(win, text="[  quantile   ]", command=lambda: T05.click_fun(win, Mlabel, data, name)).grid(row=2, column=1, **grid_opt)
-ttk.Button(win, text="[  mean   ]", command=lambda: T06.click_fun(win, Mlabel, data, name)).grid(row=2, column=2, **grid_opt)
-ttk.Button(win, text="[  bollinger   ]", command=lambda: T07.click_fun(win, Mlabel, data, name)).grid(row=3, column=0, **grid_opt)
-ttk.Button(win, text="[  costam   ]", command=lambda: T07.click_fun(win, Mlabel, data, name)).grid(row=3, column=1, **grid_opt)
-ttk.Button(win, text="[  costam   ]", command=lambda: T07.click_fun(win, Mlabel, data, name)).grid(row=3, column=2, **grid_opt)
+ttk.Button(win, text="[  count   ]", command=lambda: T01.click_fun(win, Mlabel, data, name.get())).grid(row=1, column=0, **grid_opt)
+ttk.Button(win, text="[  median   ]", command=lambda: T02.click_fun(win, Mlabel, data, name.get())).grid(row=1, column=1, **grid_opt)
+ttk.Button(win, text="[  std   ]", command=lambda: T03.click_fun(win, Mlabel, data, name.get())).grid(row=1, column=2, **grid_opt)
+ttk.Button(win, text="[  min max   ]", command=lambda: T04.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=0, **grid_opt)
+ttk.Button(win, text="[  quantile   ]", command=lambda: T05.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=1, **grid_opt)
+ttk.Button(win, text="[  mean   ]", command=lambda: T06.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=2, **grid_opt)
+ttk.Button(win, text="[  bollinger   ]", command=lambda: T07.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=0, **grid_opt)
+ttk.Button(win, text="[  costam   ]", command=lambda: T07.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=1, **grid_opt)
+ttk.Button(win, text="[  costam   ]", command=lambda: T07.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=2, **grid_opt)
 
 
 #=====================
 ttk.Button(win, text="[ O programie: ]", command=About).grid(row=4,column=0, columnspan = 1 )
 ttk.Button(win, text="[    Zamknij   ]", command=Quit).grid(row=4, column=1, columnspan = 1)
 ttk.Button(win, text="[ Import CSV ]", command=assign_data).grid(row=4, column=2, columnspan=1)
+ttk.Button(win, text="[ Change Data ]", command=openTopLevel).grid(row=4, column=3, columnspan=1)
+
+
 
 
 
 win.bind("<KeyPress-Escape>", Quit)
 win.protocol("WM_DELETE_WINDOW", Quit)
 # start interface:
+assign_data()
 win.mainloop()
 ## print(f"(Main)data = {data}") # global variable data is known to all madules
