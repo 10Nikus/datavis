@@ -10,11 +10,12 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
-from importer import import_csv
+from importer import assign_data
 
-def assign_data():
-    global data
-    data = import_csv()
+global data
+global name
+
+
 
 
 zad = 1
@@ -40,9 +41,9 @@ print("Loading zad 6/", zad); zad += 1
 #import bollinger as T06
 
 win = Tk()
-win.geometry("400x200")
-win.minsize(400,200)
-win.maxsize(400,200)
+# win.geometry("400x200")
+# win.minsize(400,200)
+# # win.maxsize(400,200)
 
 def About():
   messagebox.showinfo('SuperSTAT', 'Program written by students of 2025 Python introductory class,\nver.: 2025/03/22.1')
@@ -55,7 +56,7 @@ def NoModule():
 
 # options for buttons
 ## for pack: button_opt = {'fill': constants.BOTH, 'padx': 15, 'pady': 5}
-grid_opt = {'padx' : 15, 'pady' : 5}
+grid_opt = {'padx' : 30, 'pady' : 5}
 
 # Create a Label widget
 Mlabel  = Label(win, text="[ Select module ]", font=('Arial', 14))
@@ -68,22 +69,21 @@ MStatus.grid(row=5, columnspan=5)
 
 # Create commands buttons
 
-ttk.Button(win, text="[  count   ]", command=lambda: T01.click_fun(win, Mlabel, data)).grid(row=1, column=0, **grid_opt)
-ttk.Button(win, text="[  median   ]", command=lambda: T02.click_fun(win, Mlabel, data)).grid(row=1, column=1, **grid_opt)
-ttk.Button(win, text="[  std   ]", command=lambda: T03.click_fun(win, Mlabel, data)).grid(row=1, column=2, **grid_opt)
-ttk.Button(win, text="[  min max   ]", command=lambda: T04.click_fun(win, Mlabel, data)).grid(row=2, column=0, **grid_opt)
-ttk.Button(win, text="[  quantile   ]", command=lambda: T05.click_fun(win, Mlabel, data)).grid(row=2, column=1, **grid_opt)
-ttk.Button(win, text="[  mean   ]", command=lambda: T06.click_fun(win, Mlabel, data)).grid(row=2, column=2, **grid_opt)
-ttk.Button(win, text="[  bollinger   ]", command=lambda: T07.click_fun(win, Mlabel, data)).grid(row=3, column=0, **grid_opt)
-ttk.Button(win, text="[  costam   ]", command=lambda: T07.click_fun(win, Mlabel, data)).grid(row=3, column=1, **grid_opt)
-ttk.Button(win, text="[  costam   ]", command=lambda: T07.click_fun(win, Mlabel, data)).grid(row=3, column=2, **grid_opt)
+ttk.Button(win, text="[  count   ]", command=lambda: T01.click_fun(win, Mlabel, data, name)).grid(row=1, column=0, **grid_opt)
+ttk.Button(win, text="[  median   ]", command=lambda: T02.click_fun(win, Mlabel, data, name)).grid(row=1, column=1, **grid_opt)
+ttk.Button(win, text="[  std   ]", command=lambda: T03.click_fun(win, Mlabel, data, name)).grid(row=1, column=2, **grid_opt)
+ttk.Button(win, text="[  min max   ]", command=lambda: T04.click_fun(win, Mlabel, data, name)).grid(row=2, column=0, **grid_opt)
+ttk.Button(win, text="[  quantile   ]", command=lambda: T05.click_fun(win, Mlabel, data, name)).grid(row=2, column=1, **grid_opt)
+ttk.Button(win, text="[  mean   ]", command=lambda: T06.click_fun(win, Mlabel, data, name)).grid(row=2, column=2, **grid_opt)
+ttk.Button(win, text="[  bollinger   ]", command=lambda: T07.click_fun(win, Mlabel, data, name)).grid(row=3, column=0, **grid_opt)
+ttk.Button(win, text="[  costam   ]", command=lambda: T07.click_fun(win, Mlabel, data, name)).grid(row=3, column=1, **grid_opt)
+ttk.Button(win, text="[  costam   ]", command=lambda: T07.click_fun(win, Mlabel, data, name)).grid(row=3, column=2, **grid_opt)
 
 
 #=====================
-ttk.Button(win, text="[ O programie: ]", command=About).grid(row=4,column=0, columnspan = 2 )
-ttk.Button(win, text="[    Zamknij   ]", command=Quit).grid(row=4, column=1, columnspan = 2)
-ttk.Button(win, text="[ Import CSV ]", command=assign_data).grid(row=4, column=1, columnspan=2)
-
+ttk.Button(win, text="[ O programie: ]", command=About).grid(row=4,column=0, columnspan = 1 )
+ttk.Button(win, text="[    Zamknij   ]", command=Quit).grid(row=4, column=1, columnspan = 1)
+ttk.Button(win, text="[ Import CSV ]", command=assign_data).grid(row=4, column=2, columnspan=1)
 
 
 

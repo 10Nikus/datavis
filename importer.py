@@ -21,3 +21,9 @@ def import_csv():
     except Exception as e:
         messagebox.showerror("Error", f"An error occurred: {e}")
         return None
+    
+def assign_data():
+    data = import_csv()
+    if data is not None:
+       name = data.columns[1]
+       
