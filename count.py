@@ -1,13 +1,14 @@
 import pandas as pd
 from tkinter import messagebox
 
-def click_fun(win, Mlabel):
+
+def click_fun(win, Mlabel, df, name):
     try:
-        df = pd.read_csv('data/sample_stock_data.csv')
-        count = df['Volume'].count()
-        Mlabel.config(text=f"Count of observations: {count}")
+        count = df[name].count()
+        Mlabel.config(text=f"Count of observations of {name}: {count}")
         
     except FileNotFoundError:
         messagebox.showerror("Błąd", "Nie znaleziono pliku: data/sample_stock_data.csv")
+ 
     except Exception as e:
         messagebox.showerror("Błąd", f"Wystąpił problem: {e}")
