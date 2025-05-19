@@ -39,7 +39,7 @@ win.minsize(400,200)
 win.maxsize(400,200)
 
 def About():
-  messagebox.showinfo('SuperSTAT', 'Program written by students of 2025 Python introductory class,\nver.: 2025/03/22.1')
+  messagebox.showinfo('SuperSTAT', 'Program written by students of 2025 Python introductory class,\nver.: 2025/03/22.1') # to do zmiany
 
 def Quit(*event):
   quit()
