@@ -58,6 +58,9 @@ print("Loading zad 8/", zad); zad += 1
 import barplot as T10
 print("Loading zad 9/", zad); zad += 1
 
+import histogram as T11
+print("Loading zad 10/", zad); zad += 1
+
 win = Tk()
 name = StringVar()
 # win.geometry("400x200")
@@ -117,6 +120,7 @@ ttk.Button(win, text="[  bollinger   ]", command=lambda: T07.click_fun(win, Mlab
 ttk.Button(win, text="[  plot   ]", command=lambda: T08.click_fun(data, name.get())).grid(row=3, column=1, **grid_opt)
 ttk.Button(win, text="[  scatterplot   ]", command=lambda: T09.click_fun(data, name.get())).grid(row=3, column=2, **grid_opt)
 ttk.Button(win, text="[  barplot   ]", command=lambda: T10.click_fun(data, name.get())).grid(row=4, column=0, **grid_opt)
+ttk.Button(win, text="[  histogram   ]", command=lambda: T11.click_fun(data, name.get())).grid(row=4, column=1, **grid_opt)
 
 #=====================
 ttk.Button(win, text="[ O programie: ]", command=About).grid(row=5,column=0, columnspan = 1 )
