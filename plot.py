@@ -2,10 +2,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 def click_fun(df, name):
-    x = np.array(df['Date'])
-    plt.plot(x, '-g')
+    y = np.array(df[name])
+    plt.plot(y, '-g')
     plt.title(f"Plot of {name}")
-    plt.ylabel(name)
     plt.xticks([])
-    plt.tight_layout()
     plt.show()

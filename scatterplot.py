@@ -6,7 +6,6 @@ def click_fun(df, name):
     y = np.array(df[name])
     plt.scatter(x, y)
     plt.title(f"Plot of {name}")
-    plt.ylabel(name)
     plt.xticks([])
     plt.tight_layout()
     plt.show()

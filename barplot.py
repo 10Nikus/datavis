@@ -6,7 +6,7 @@ def click_fun(df, name):
     y = np.array(df[name])
     plt.bar(x, y)
     plt.title(f"Plot of {name}")
-    plt.ylabel(name)
     plt.xticks([])
-    plt.tight_layout()
+
+    plt.ylim(bottom=min(y) * 0.9 , top=max(y) * 1.1)
     plt.show()
