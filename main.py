@@ -61,8 +61,6 @@ print("Loading zad 11/", zad); zad += 1
 win = Tk()
 name = StringVar()
 
-def About():
-  messagebox.showinfo('SuperSTAT', 'Program written by students of 2025 Python introductory class,\nver.: 2025/05/22.1')
 
 def Quit(*event):
   quit()
@@ -111,7 +109,7 @@ ttk.Button(win, text="[  Barplot   ]", command=lambda: T10.click_fun(data, name.
 ttk.Button(win, text="[  Histogram   ]", command=lambda: T11.click_fun(data, name.get())).grid(row=1, column=3, **grid_opt)
 
 #=====================
-ttk.Button(win, text="[ About the program: ]", command=About).grid(row=5,column=2, columnspan = 1 )
+
 ttk.Button(win, text="[ Close   ]", command=Quit).grid(row=5, column=3, columnspan = 1)
 ttk.Button(win, text="[ Import CSV ]", command=assign_data).grid(row=5, column=0, columnspan=1)
 ttk.Button(win, text="[ Change Data ]", command=openTopLevel).grid(row=3, column=3, columnspan=1)
