@@ -80,7 +80,7 @@ name = StringVar()
 grid_opt = {'padx' : 30, 'pady' : 5}
 
 
-Mlabel  = Label(win, text="[ Please load data first ]", font=('Arial', 14))
+Mlabel  = Label(win, height=3, text="[ Please load data first ]", font=('Arial', 14))
 Mlabel.pack(pady=5)
 
 outer = Frame(win)
@@ -90,7 +90,7 @@ button_box = Frame(outer)
 button_box.pack()
 MStatus = Label(win, text='', font=('Arial', 7))
 MStatus.pack(pady=2)
-# Create commands buttons
+
 ttk.Button(button_box, text="Count", width=12, state="disabled", command=lambda: count.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=0, **grid_opt)
 ttk.Button(button_box, text="Median", width=12 , state="disabled", command=lambda: median.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=1, **grid_opt)
 ttk.Button(button_box, text="Std", width=12 , state="disabled", command=lambda: std.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=2, **grid_opt)
@@ -110,6 +110,5 @@ ttk.Button(button_box, text="Change Data", width=12, state="disabled",  command=
 win.bind("<KeyPress-Escape>", Quit)
 win.protocol("WM_DELETE_WINDOW", Quit)
 
-# start interface:
 
 win.mainloop()
