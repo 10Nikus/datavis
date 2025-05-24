@@ -58,8 +58,6 @@ print("Loading zad 10/", zad); zad += 1
 import histogram as T11
 print("Loading zad 11/", zad); zad += 1
 
-win = Tk()
-name = StringVar()
 
 
 def Quit(*event):
@@ -84,35 +82,48 @@ def openTopLevel():
   
   Button(top, text = "Exit", command = top.destroy).pack()
 
+win = Tk()
+name = StringVar()
+win.geometry("600x250")
+win.resizable(False, False)
+
+
 # options for buttons
 grid_opt = {'padx' : 30, 'pady' : 5}
 
 # Create a Label widget
-Mlabel  = Label(win, text="[ Select module ]", font=('Arial', 14))
-Mlabel.grid(row=0, columnspan=5)
+Mlabel  = Label(win, text="[ Select module ]", font=('Arial', 14), height=2)
+Mlabel.pack(pady=5)
 
 MStatus = Label(win, text="...", font=('Arial', 14))
-MStatus.grid(row=6, columnspan=5)
-#Mlabel.pack(pady=40)
+MStatus.pack(pady=2)
+
+
+outer = Frame(win)
+outer.pack(expand=True)
+
+
+button_box = Frame(outer)
+button_box.pack() 
 
 # Create commands buttons
-ttk.Button(win, text="[  Count   ]", command=lambda: T01.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=0, **grid_opt)
-ttk.Button(win, text="[  Median   ]", command=lambda: T02.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=1, **grid_opt)
-ttk.Button(win, text="[  Std   ]", command=lambda: T03.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=2, **grid_opt)
-ttk.Button(win, text="[  Min Max   ]", command=lambda: T04.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=3, **grid_opt)
-ttk.Button(win, text="[  Quantile   ]", command=lambda: T05.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=0, **grid_opt)
-ttk.Button(win, text="[  Mean   ]", command=lambda: T06.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=1, **grid_opt)
-ttk.Button(win, text="[  Bollinger   ]", command=lambda: T07.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=2, **grid_opt)
-ttk.Button(win, text="[  Plot   ]", command=lambda: T08.click_fun(data, name.get())).grid(row=1, column=0, **grid_opt)
-ttk.Button(win, text="[  Scatterplot   ]", command=lambda: T09.click_fun(data, name.get())).grid(row=1, column=1, **grid_opt)
-ttk.Button(win, text="[  Barplot   ]", command=lambda: T10.click_fun(data, name.get())).grid(row=1, column=2, **grid_opt)
-ttk.Button(win, text="[  Histogram   ]", command=lambda: T11.click_fun(data, name.get())).grid(row=1, column=3, **grid_opt)
+ttk.Button(button_box, text="[  Count   ]", command=lambda: T01.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=0, **grid_opt)
+ttk.Button(button_box, text="[  Median   ]", command=lambda: T02.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=1, **grid_opt)
+ttk.Button(button_box, text="[  Std   ]", command=lambda: T03.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=2, **grid_opt)
+ttk.Button(button_box, text="[  Min Max   ]", command=lambda: T04.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=3, **grid_opt)
+ttk.Button(button_box, text="[  Quantile   ]", command=lambda: T05.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=0, **grid_opt)
+ttk.Button(button_box, text="[  Mean   ]", command=lambda: T06.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=1, **grid_opt)
+ttk.Button(button_box, text="[  Bollinger   ]", command=lambda: T07.click_fun(button_box, Mlabel, data, name.get())).grid(row=3, column=2, **grid_opt)
+ttk.Button(button_box, text="[  Plot   ]", command=lambda: T08.click_fun(data, name.get())).grid(row=1, column=0, **grid_opt)
+ttk.Button(button_box, text="[  Scatterplot   ]", command=lambda: T09.click_fun(data, name.get())).grid(row=1, column=1, **grid_opt)
+ttk.Button(button_box, text="[  Barplot   ]", command=lambda: T10.click_fun(data, name.get())).grid(row=1, column=2, **grid_opt)
+ttk.Button(button_box, text="[  Histogram   ]", command=lambda: T11.click_fun(data, name.get())).grid(row=1, column=3, **grid_opt)
 
 #=====================
 
-ttk.Button(win, text="[ Close   ]", command=Quit).grid(row=5, column=3, columnspan = 1)
-ttk.Button(win, text="[ Import CSV ]", command=assign_data).grid(row=5, column=0, columnspan=1)
-ttk.Button(win, text="[ Change Data ]", command=openTopLevel).grid(row=3, column=3, columnspan=1)
+ttk.Button(button_box, text="[ Close   ]", command=Quit).grid(row=5, column=3, columnspan = 1)
+ttk.Button(button_box, text="[ Import CSV ]", command=assign_data).grid(row=5, column=0, columnspan=1)
+ttk.Button(button_box, text="[ Change Data ]", command=openTopLevel).grid(row=3, column=3, columnspan=1)
 
 win.bind("<KeyPress-Escape>", Quit)
 win.protocol("WM_DELETE_WINDOW", Quit)
