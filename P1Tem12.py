@@ -11,17 +11,17 @@ from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox, StringVar
 from P1Tem12_functions.P1Tem12_importer import import_csv
-import P1Tem12_functions.statistic.P1Tem12count as P1Tem12count
-import P1Tem12_functions.statistic.P1Tem12median as P1Tem12median 
-import P1Tem12_functions.statistic.P1Tem12_std as P1Tem12_std 
-import P1Tem12_functions.statistic.P1Tem12_max_min as P1Tem12_max_min 
-import P1Tem12_functions.statistic.P1Tem12_quantile as P1Tem12_quantile 
-import P1Tem12_functions.statistic.P1Tem12_mean as P1Tem12_mean 
+import P1Tem12_functions.P1Tem12_statistic.P1Tem12count as P1Tem12count
+import P1Tem12_functions.P1Tem12_statistic.P1Tem12median as P1Tem12median 
+import P1Tem12_functions.P1Tem12_statistic.P1Tem12_std as P1Tem12_std 
+import P1Tem12_functions.P1Tem12_statistic.P1Tem12_max_min as P1Tem12_max_min 
+import P1Tem12_functions.P1Tem12_statistic.P1Tem12_quantile as P1Tem12_quantile 
+import P1Tem12_functions.P1Tem12_statistic.P1Tem12_mean as P1Tem12_mean 
 import P1Tem12_functions.P1Tem12_bollinger  as P1Tem12_bollinger
-import P1Tem12_functions.plots.P1_Tem12_plot as P1_Tem12_plot 
-import P1Tem12_functions.plots.P1Tem12_scatterplot as P1Tem12_scatterplot 
-import P1Tem12_functions.plots.P1Tem12_barplot as P1Tem12_barplot 
-import P1Tem12_functions.plots.P1Tem12_histogram as P1Tem12_histogram 
+import P1Tem12_functions.P1Tem12_plots.P1_Tem12_plot as P1_Tem12_plot 
+import P1Tem12_functions.P1Tem12_plots.P1Tem12_scatterplot as P1Tem12_scatterplot 
+import P1Tem12_functions.P1Tem12_plots.P1Tem12_barplot as P1Tem12_barplot 
+import P1Tem12_functions.P1Tem12_plots.P1Tem12_histogram as P1Tem12_histogram 
 
 def assign_data():
   global data
