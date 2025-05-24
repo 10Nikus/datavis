@@ -10,18 +10,18 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox, StringVar
-from functions.importer import import_csv
-import functions.statistic.count as count
-import functions.statistic.median as median 
-import functions.statistic.std as std 
-import functions.statistic.max_min as max_min 
-import functions.statistic.quantile as quantile 
-import functions.statistic.mean as mean 
-import functions.bollinger  as bollinger
-import functions.plots.plot as plot 
-import functions.plots.scatterplot as scatterplot 
-import functions.plots.barplot as barplot 
-import functions.plots.histogram as histogram 
+from functions.P1Tem12_importer import import_csv
+import functions.statistic.P1Tem12count as P1Tem12count
+import functions.statistic.P1Tem12median as P1Tem12median 
+import functions.statistic.P1Tem12_std as P1Tem12_std 
+import functions.statistic.P1Tem12_max_min as P1Tem12_max_min 
+import functions.statistic.P1Tem12_quantile as P1Tem12_quantile 
+import functions.statistic.P1Tem12_mean as P1Tem12_mean 
+import functions.P1Tem12_bollinger  as P1Tem12_bollinger
+import functions.plots.P1_Tem12_plot as P1_Tem12_plot 
+import functions.plots.P1Tem12_scatterplot as P1Tem12_scatterplot 
+import functions.plots.P1Tem12_barplot as P1Tem12_barplot 
+import functions.plots.P1Tem12_histogram as P1Tem12_histogram 
 
 def assign_data():
   global data
@@ -89,15 +89,15 @@ button_box.pack()
 MStatus = Label(win, text='', font=('Arial', 7))
 MStatus.pack(pady=2)
 
-ttk.Button(button_box, text="Count", width=12, state="disabled", command=lambda: count.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=0, **grid_opt)
-ttk.Button(button_box, text="Median", width=12 , state="disabled", command=lambda: median.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=1, **grid_opt)
-ttk.Button(button_box, text="Std", width=12 , state="disabled", command=lambda: std.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=2, **grid_opt)
-ttk.Button(button_box, text="Min Max", width=12 , state="disabled", command=lambda: max_min.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=3, **grid_opt)
-ttk.Button(button_box, text="Quantile", width=12 , state="disabled", command=lambda: quantile.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=0, **grid_opt)
-ttk.Button(button_box, text="Mean", width=12 , state="disabled", command=lambda: mean.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=1, **grid_opt)
-ttk.Button(button_box, text="Bollinger", width=12 , state="disabled", command=lambda: bollinger.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=2, **grid_opt)
-ttk.Button(button_box, text="Plot", width=12 , state="disabled", command=lambda: plot.click_fun(data, name.get())).grid(row=1, column=0, **grid_opt)
-ttk.Button(button_box, text="Scatterplot", width=12 , state="disabled", command=lambda: scatterplot.click_fun(data, name.get())).grid(row=1, column=1, **grid_opt)
+ttk.Button(button_box, text="Count", width=12, state="disabled", command=lambda: P1Tem12count.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=0, **grid_opt)
+ttk.Button(button_box, text="Median", width=12 , state="disabled", command=lambda: P1Tem12median.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=1, **grid_opt)
+ttk.Button(button_box, text="Std", width=12 , state="disabled", command=lambda: P1Tem12_std.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=2, **grid_opt)
+ttk.Button(button_box, text="Min Max", width=12 , state="disabled", command=lambda: P1Tem12_max_min.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=3, **grid_opt)
+ttk.Button(button_box, text="Quantile", width=12 , state="disabled", command=lambda: P1Tem12_quantile.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=0, **grid_opt)
+ttk.Button(button_box, text="Mean", width=12 , state="disabled", command=lambda: P1Tem12_mean.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=1, **grid_opt)
+ttk.Button(button_box, text="Bollinger", width=12 , state="disabled", command=lambda: P1Tem12_bollinger.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=2, **grid_opt)
+ttk.Button(button_box, text="Plot", width=12 , state="disabled", command=lambda: P1_Tem12_plot.click_fun(data, name.get())).grid(row=1, column=0, **grid_opt)
+ttk.Button(button_box, text="Scatterplot", width=12 , state="disabled", command=lambda: P1Tem12_scatterplot.click_fun(data, name.get())).grid(row=1, column=1, **grid_opt)
 ttk.Button(button_box, text="Barplot", width=12 , state="disabled", command=lambda: barplot.click_fun(data, name.get())).grid(row=1, column=2, **grid_opt)
 ttk.Button(button_box, text="Histogram", width=12 , state="disabled", command=lambda: histogram.click_fun(data, name.get())).grid(row=1, column=3, **grid_opt)
 
@@ -107,6 +107,5 @@ ttk.Button(button_box, text="Change Data", width=12, state="disabled",  command=
 
 win.bind("<KeyPress-Escape>", Quit)
 win.protocol("WM_DELETE_WINDOW", Quit)
-
 
 win.mainloop()
