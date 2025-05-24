@@ -11,7 +11,8 @@ def import_csv():
         if not file_path:
             return None
         df = pd.read_csv(file_path)
-        return df
+        file_path = file_path[file_path.rfind('/') + 1:] 
+        return df, file_path
     except FileNotFoundError:
         messagebox.showerror("Error", "File not found.")
         return None

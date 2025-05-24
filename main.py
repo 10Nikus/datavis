@@ -12,19 +12,9 @@ from tkinter import ttk
 from tkinter import messagebox, StringVar
 from importer import import_csv
 
-def assign_data():
-  global data
-  global name
-
-  data = import_csv()
-  if data is not None:
-     if len(data.columns) > 1:
-      name.set(data.columns[1])
-     else:
-      name.set(data.columns[0])
-     print("zaimportowano dane")
-       
 zad = 1
+
+
 import count as T01
 print("Loading zad 1/", zad); zad += 1
 
@@ -58,7 +48,21 @@ print("Loading zad 10/", zad); zad += 1
 import histogram as T11
 print("Loading zad 11/", zad); zad += 1
 
+def assign_data():
+  global data
+  global name
 
+  data, filepath = import_csv()
+
+  print(f"zaimportowano dane z {filepath}")
+  MStatus.config(text=f"[ Data loaded: {filepath} ]")
+  if data is not None:
+     if len(data.columns) > 1:
+      name.set(data.columns[1])
+     else:
+      name.set(data.columns[0])
+  
+     print("zaimportowano dane")
 
 def Quit(*event):
   quit()
@@ -97,7 +101,7 @@ grid_opt = {'padx' : 30, 'pady' : 5}
 Mlabel  = Label(win, text="[ Select module ]", font=('Arial', 14))
 Mlabel.pack(pady=5)
 
-MStatus = Label(win, text="...", font=('Arial', 14))
+MStatus = Label(win, text='Please load data', font=('Arial', 14))
 MStatus.pack(pady=2)
 
 outer = Frame(win)
@@ -107,21 +111,21 @@ button_box = Frame(outer)
 button_box.pack()
 
 # Create commands buttons
-ttk.Button(button_box, text="Count", width=8, command=lambda: T01.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=0, **grid_opt)
-ttk.Button(button_box, text="Median", width=8, command=lambda: T02.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=1, **grid_opt)
-ttk.Button(button_box, text="Std", width=8, command=lambda: T03.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=2, **grid_opt)
-ttk.Button(button_box, text="Min Max", width=8, command=lambda: T04.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=3, **grid_opt)
-ttk.Button(button_box, text="Quantile", width=8, command=lambda: T05.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=0, **grid_opt)
-ttk.Button(button_box, text="Mean", width=8, command=lambda: T06.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=1, **grid_opt)
-ttk.Button(button_box, text="Bollinger", width=8, command=lambda: T07.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=2, **grid_opt)
-ttk.Button(button_box, text="Plot", width=8, command=lambda: T08.click_fun(data, name.get())).grid(row=1, column=0, **grid_opt)
-ttk.Button(button_box, text="Scatterplot", width=8, command=lambda: T09.click_fun(data, name.get())).grid(row=1, column=1, **grid_opt)
-ttk.Button(button_box, text="Barplot", width=8, command=lambda: T10.click_fun(data, name.get())).grid(row=1, column=2, **grid_opt)
-ttk.Button(button_box, text="Histogram", width=8, command=lambda: T11.click_fun(data, name.get())).grid(row=1, column=3, **grid_opt)
+ttk.Button(button_box, text="Count", width=12, command=lambda: T01.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=0, **grid_opt)
+ttk.Button(button_box, text="Median", width=12, command=lambda: T02.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=1, **grid_opt)
+ttk.Button(button_box, text="Std", width=12, command=lambda: T03.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=2, **grid_opt)
+ttk.Button(button_box, text="Min Max", width=12, command=lambda: T04.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=3, **grid_opt)
+ttk.Button(button_box, text="Quantile", width=12, command=lambda: T05.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=0, **grid_opt)
+ttk.Button(button_box, text="Mean", width=12, command=lambda: T06.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=1, **grid_opt)
+ttk.Button(button_box, text="Bollinger", width=12, command=lambda: T07.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=2, **grid_opt)
+ttk.Button(button_box, text="Plot", width=12, command=lambda: T08.click_fun(data, name.get())).grid(row=1, column=0, **grid_opt)
+ttk.Button(button_box, text="Scatterplot", width=12, command=lambda: T09.click_fun(data, name.get())).grid(row=1, column=1, **grid_opt)
+ttk.Button(button_box, text="Barplot", width=12, command=lambda: T10.click_fun(data, name.get())).grid(row=1, column=2, **grid_opt)
+ttk.Button(button_box, text="Histogram", width=12, command=lambda: T11.click_fun(data, name.get())).grid(row=1, column=3, **grid_opt)
 
-ttk.Button(button_box, text="[ Close   ]", command=Quit).grid(row=5, column=3, columnspan = 1, **grid_opt)
-ttk.Button(button_box, text="[ Import CSV ]", command=assign_data).grid(row=5, column=0, columnspan=1, **grid_opt)
-ttk.Button(button_box, text="[ Change Data ]", command=openTopLevel).grid(row=3, column=3, columnspan=1, **grid_opt)
+ttk.Button(button_box, text="Close", width=12, command=Quit).grid(row=5, column=3, columnspan = 1, **grid_opt)
+ttk.Button(button_box, text="Import CSV", width=12, command=assign_data).grid(row=5, column=0, columnspan=1, **grid_opt)
+ttk.Button(button_box, text="Change Data", width=12, command=openTopLevel).grid(row=3, column=3, columnspan=1, **grid_opt)
 
 win.bind("<KeyPress-Escape>", Quit)
 win.protocol("WM_DELETE_WINDOW", Quit)
