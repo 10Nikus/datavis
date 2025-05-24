@@ -10,18 +10,18 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox, StringVar
-from importer import import_csv
-import count 
-import median 
-import std 
-import max_min 
-import quantile 
-import mean 
-import bollinger 
-import plot 
-import scatterplot 
-import barplot 
-import histogram 
+from functions.importer import import_csv
+import functions.statistic.count as count
+import functions.statistic.median as median 
+import functions.statistic.std as std 
+import functions.statistic.max_min as max_min 
+import functions.statistic.quantile as quantile 
+import functions.statistic.mean as mean 
+import functions.bollinger 
+import functions.plots.plot as plot 
+import functions.plots.scatterplot as scatterplot 
+import functions.plots.barplot as barplot 
+import functions.plots.histogram as histogram 
 
 def assign_data():
   global data
