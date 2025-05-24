@@ -69,8 +69,6 @@ def openTopLevel():
   ttk.Button(top, text = "Exit", command = top.destroy).pack()
 
 
-
-
 win = Tk()
 win.geometry("600x250")
 win.title("Data Analysis and Visualization Tool")
