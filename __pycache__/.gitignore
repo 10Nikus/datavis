@@ -1,0 +1,21 @@
+# Pliki Pythona
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Środowiska wirtualne (jeśli używasz)
+env/
+venv/
+.venv/
+
+# Pliki danych (jeśli chcesz ich nie wrzucać do repo)
+data/*.csv
+
+# Konfiguracje edytorów
+.vscode/
+.idea/
+
+# Pliki systemowe
+.DS_Store
+Thumbs.db
