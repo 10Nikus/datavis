@@ -1,0 +1,82 @@
+Autorzy: Justyna Oczko, Nikodem Kijas
+-----------------------------
+Zakres wykonania projektu:
+-----------------------------
+
+- Projekt interfejsu graficznego: Justyna Oczko, Nikodem Kijas  
+- Implementacja statystyk opisowych oraz wskaźników technicznych: Justyna Oczko  
+- Opracowanie wykresów i wizualizacji danych: Nikodem Kijas  
+- Optymalizacje techniczne oraz poprawki funkcjonalne: Nikodem Kijas  
+- Redakcja i korekta stylistyczna programu: Justyna Oczko
+
+===========================
+INSTRUKCJA OBSŁUGI PROGRAMU
+===========================
+
+Nazwa aplikacji:
+----------------
+Interaktywna aplikacja do analizy i wizualizacji danych giełdowych z wykorzystaniem wskaźników technicznych i statystyk opisowych.
+
+
+Wymagania:
+----------
+- Python 3.x
+- Biblioteki: tkinter, pandas, matplotlib, numpy
+
+
+Uruchamianie:
+-------------
+1. Upewnienie się, że zainstalowane zostały wymagane biblioteki.
+2. Uruchomienie pliku główny programu (main.py)
+
+
+Dane wejściowe:
+---------------
+Program wykorzystuje plik CSV z danymi giełdowymi. Przy pierwszym uruchomieniu należy kliknąć "Load data" i wybrać plik "P1Team12_data1.csv", "P1Team12_data2.csv", lub "P1Team12_data3.csv", który został przygotowany jako dane wejściowe. Pliki znajdują się w folderze "P1Tem12_data" w folderze "data".
+
+
+Obsługa programu:
+-----------------
+1. "Load data" – wybierz jeden z ww. plików, aby załadować dane. Pliki znajdują się w folderze "P1Tem12_data".
+2. Po załadowaniu dane zostaną wczytane, a pozostałe opcje staną się dostępne.
+3. "Change Data" – wybierz kolumnę (np. „Close”), którą chcesz analizować.
+4. Użyj przycisków z grup statystyki i wykresy:
+- Statystyki opisowe: "Count", "Median", "Std", "Min Max", "Quantile", "Mean"
+- Wizualizacje: "Plot", "Scatterplot", "Barplot", "Histogram"
+- Wskaźniki techniczne: "Bollinger"
+5. "Close" – zamyka aplikację.
+
+
+Moduły własne:
+--------------
+Program wykorzystuje własne moduły funkcjonalne zapisane w strukturze katalogów:
+
+P1Tem12_funkcje/
+├── plots/
+│   ├── P1_Tem12_plot.py
+│   ├── P1_Tem12_barplot.py
+│   ├── P1_Tem12_histogram.py
+│   └── P1_Tem12_scatterplot.py
+├── statistic/
+│   ├── P1_Tem12_count.py
+│   ├── P1_Tem12_median.py
+│   ├── P1_Tem12_std.py
+│   ├── P1_Tem12_mean.py
+│   ├── P1_Tem12_max_min.py
+│   ├── P1_Tem12_quantile.py
+│   └── P1_Tem12_bollinger.py
+├── P1_Tem12_importer.py
+
+Moduły te zawierają zaimplementowane funkcje statystyczne, wskaźniki techniczne oraz narzędzia do wizualizacji danych. Muszą znajdować się w projekcie, aby mogły zostać poprawnie zaimportowane i umożliwiły działanie programu głównego.
+
+
+Uwagi:
+------
+- Wczytany plik musi mieć nagłówki w pierwszym wierszu.
+- Aplikacja domyślnie wybiera drugą kolumnę do analizy (np. „Open”), ale można to zmienić.
+- Dane w analizowanej kolumnie muszą być liczbowe.
+
+
+Zakończenie:
+------------
+Aby zakończyć działanie programu, należy wybrać "Close" lub nacisnąć klawisz ESC.

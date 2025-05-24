@@ -10,18 +10,18 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox, StringVar
-from functions.P1Tem12_importer import import_csv
-import functions.statistic.P1Tem12count as P1Tem12count
-import functions.statistic.P1Tem12median as P1Tem12median 
-import functions.statistic.P1Tem12_std as P1Tem12_std 
-import functions.statistic.P1Tem12_max_min as P1Tem12_max_min 
-import functions.statistic.P1Tem12_quantile as P1Tem12_quantile 
-import functions.statistic.P1Tem12_mean as P1Tem12_mean 
-import functions.P1Tem12_bollinger  as P1Tem12_bollinger
-import functions.plots.P1_Tem12_plot as P1_Tem12_plot 
-import functions.plots.P1Tem12_scatterplot as P1Tem12_scatterplot 
-import functions.plots.P1Tem12_barplot as P1Tem12_barplot 
-import functions.plots.P1Tem12_histogram as P1Tem12_histogram 
+from P1Tem12_functions.P1Tem12_importer import import_csv
+import P1Tem12_functions.statistic.P1Tem12count as P1Tem12count
+import P1Tem12_functions.statistic.P1Tem12median as P1Tem12median 
+import P1Tem12_functions.statistic.P1Tem12_std as P1Tem12_std 
+import P1Tem12_functions.statistic.P1Tem12_max_min as P1Tem12_max_min 
+import P1Tem12_functions.statistic.P1Tem12_quantile as P1Tem12_quantile 
+import P1Tem12_functions.statistic.P1Tem12_mean as P1Tem12_mean 
+import P1Tem12_functions.P1Tem12_bollinger  as P1Tem12_bollinger
+import P1Tem12_functions.plots.P1_Tem12_plot as P1_Tem12_plot 
+import P1Tem12_functions.plots.P1Tem12_scatterplot as P1Tem12_scatterplot 
+import P1Tem12_functions.plots.P1Tem12_barplot as P1Tem12_barplot 
+import P1Tem12_functions.plots.P1Tem12_histogram as P1Tem12_histogram 
 
 def assign_data():
   global data
