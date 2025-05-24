@@ -53,21 +53,22 @@ def NoModule():
 
 def openTopLevel():
   top = Toplevel(win)
-  top.title("Top Level Window")
-
+  top.title("Select Data Column")
+  top.geometry("300x300")
+  top.resizable(width=False, height=False)
+  wrapper = Frame(top, padx=20, pady=20)
+  wrapper.pack(expand=True, fill=BOTH)
   def setName(word):
     name.set(word)
     top.destroy()
 
-  label = Label(top, text="Change data to be analyzed")
-  label.pack(pady=20)
   columns = data.columns[1:]
   for col in columns:
-    Button(top, text=col, command=lambda c=col: setName(c)).pack(pady=5)
+    ttk.Button(wrapper, text=col, width=12, command=lambda c=col: setName(c)).pack(pady=5)
   
-  Button(top, text = "Exit", command = top.destroy).pack()
+  ttk.Button(top, text = "Exit", command = top.destroy).pack()
 
-# options for buttons
+
 
 
 win = Tk()
@@ -78,19 +79,17 @@ win.resizable(width=False, height=False)
 name = StringVar()
 grid_opt = {'padx' : 30, 'pady' : 5}
 
-# Create a Label widget
+
 Mlabel  = Label(win, text="[ Please load data first ]", font=('Arial', 14))
 Mlabel.pack(pady=5)
-
-MStatus = Label(win, text='', font=('Arial', 14))
-MStatus.pack(pady=2)
 
 outer = Frame(win)
 outer.pack(expand=True)
 
 button_box = Frame(outer)
 button_box.pack()
-
+MStatus = Label(win, text='', font=('Arial', 7))
+MStatus.pack(pady=2)
 # Create commands buttons
 ttk.Button(button_box, text="Count", width=12, state="disabled", command=lambda: count.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=0, **grid_opt)
 ttk.Button(button_box, text="Median", width=12 , state="disabled", command=lambda: median.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=1, **grid_opt)
