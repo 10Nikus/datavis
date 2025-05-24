@@ -1,13 +1,5 @@
 import pandas as pd
-from tkinter import messagebox
-def click_fun(win, Mlabel, df, name):
-    try:
-        
-        mean = df[name].mean()
-        Mlabel.config(text=f"Mean of {name}: {mean}")
-        
-    except FileNotFoundError:
-        messagebox.showerror("Błąd", "Nie znaleziono pliku: data/sample_stock_data.csv")
 
-    except Exception as e:
-        messagebox.showerror("Błąd", f"Wystąpił problem: {e}")
+def click_fun(win, Mlabel, df, name):
+    mean_val = df[name].mean().round(2)
+    Mlabel.config(text=f"Mean of {name}: {mean_val}")

@@ -12,8 +12,6 @@ from tkinter import ttk
 from tkinter import messagebox, StringVar
 from importer import import_csv
 
-
-
 def assign_data():
   global data
   global name
@@ -26,57 +24,49 @@ def assign_data():
       name.set(data.columns[0])
      print("zaimportowano dane")
        
-
 zad = 1
-print("Loading zad 1/", zad); zad += 1
 import count as T01
+print("Loading zad 1/", zad); zad += 1
 
-print("Loading zad 2/", zad); zad += 1
 import median as T02
+print("Loading zad 2/", zad); zad += 1
 
-print("Loading zad 3/", zad); zad += 1
 import std as T03
+print("Loading zad 3/", zad); zad += 1
 
-print("Loading zad 4/", zad); zad += 1
 import max_min as T04
+print("Loading zad 4/", zad); zad += 1
 
-print("Loading zad 5/", zad); zad += 1
 import quantile as T05
+print("Loading zad 5/", zad); zad += 1
 
-print("Loading zad 6/", zad); zad += 1
 import mean as T06
-
 print("Loading zad 6/", zad); zad += 1
-#import bollinger as T06
 
-import plot as T08
+import bollinger as T07
 print("Loading zad 7/", zad); zad += 1
 
-import scatterplot as T09
+import plot as T08
 print("Loading zad 8/", zad); zad += 1
 
-import barplot as T10
+import scatterplot as T09
 print("Loading zad 9/", zad); zad += 1
 
-import histogram as T11
+import barplot as T10
 print("Loading zad 10/", zad); zad += 1
+
+import histogram as T11
+print("Loading zad 11/", zad); zad += 1
 
 win = Tk()
 name = StringVar()
-# win.geometry("400x200")
-# win.minsize(400,200)
-# # win.maxsize(400,200)
 
-def About():
-  messagebox.showinfo('SuperSTAT', 'Program written by students of 2025 Python introductory class,\nver.: 2025/03/22.1')
 
 def Quit(*event):
   quit()
 
 def NoModule():
   messagebox.showinfo('ERROR', 'Module is improperly implemented, run directly')
-
-
 
 def openTopLevel():
   top = Toplevel(win)
@@ -94,9 +84,7 @@ def openTopLevel():
   
   Button(top, text = "Exit", command = top.destroy).pack()
 
-
 # options for buttons
-## for pack: button_opt = {'fill': constants.BOTH, 'padx': 15, 'pady': 5}
 grid_opt = {'padx' : 30, 'pady' : 5}
 
 # Create a Label widget
@@ -107,34 +95,28 @@ MStatus = Label(win, text="...", font=('Arial', 14))
 MStatus.grid(row=6, columnspan=5)
 #Mlabel.pack(pady=40)
 
-
 # Create commands buttons
-
-ttk.Button(win, text="[  count   ]", command=lambda: T01.click_fun(win, Mlabel, data, name.get())).grid(row=1, column=0, **grid_opt)
-ttk.Button(win, text="[  median   ]", command=lambda: T02.click_fun(win, Mlabel, data, name.get())).grid(row=1, column=1, **grid_opt)
-ttk.Button(win, text="[  std   ]", command=lambda: T03.click_fun(win, Mlabel, data, name.get())).grid(row=1, column=2, **grid_opt)
-ttk.Button(win, text="[  min max   ]", command=lambda: T04.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=0, **grid_opt)
-ttk.Button(win, text="[  quantile   ]", command=lambda: T05.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=1, **grid_opt)
-ttk.Button(win, text="[  mean   ]", command=lambda: T06.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=2, **grid_opt)
-ttk.Button(win, text="[  bollinger   ]", command=lambda: T07.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=0, **grid_opt)
-ttk.Button(win, text="[  plot   ]", command=lambda: T08.click_fun(data, name.get())).grid(row=3, column=1, **grid_opt)
-ttk.Button(win, text="[  scatterplot   ]", command=lambda: T09.click_fun(data, name.get())).grid(row=3, column=2, **grid_opt)
-ttk.Button(win, text="[  barplot   ]", command=lambda: T10.click_fun(data, name.get())).grid(row=4, column=0, **grid_opt)
-ttk.Button(win, text="[  histogram   ]", command=lambda: T11.click_fun(data, name.get())).grid(row=4, column=1, **grid_opt)
+ttk.Button(win, text="[  Count   ]", command=lambda: T01.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=0, **grid_opt)
+ttk.Button(win, text="[  Median   ]", command=lambda: T02.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=1, **grid_opt)
+ttk.Button(win, text="[  Std   ]", command=lambda: T03.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=2, **grid_opt)
+ttk.Button(win, text="[  Min Max   ]", command=lambda: T04.click_fun(win, Mlabel, data, name.get())).grid(row=2, column=3, **grid_opt)
+ttk.Button(win, text="[  Quantile   ]", command=lambda: T05.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=0, **grid_opt)
+ttk.Button(win, text="[  Mean   ]", command=lambda: T06.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=1, **grid_opt)
+ttk.Button(win, text="[  Bollinger   ]", command=lambda: T07.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=2, **grid_opt)
+ttk.Button(win, text="[  Plot   ]", command=lambda: T08.click_fun(data, name.get())).grid(row=1, column=0, **grid_opt)
+ttk.Button(win, text="[  Scatterplot   ]", command=lambda: T09.click_fun(data, name.get())).grid(row=1, column=1, **grid_opt)
+ttk.Button(win, text="[  Barplot   ]", command=lambda: T10.click_fun(data, name.get())).grid(row=1, column=2, **grid_opt)
+ttk.Button(win, text="[  Histogram   ]", command=lambda: T11.click_fun(data, name.get())).grid(row=1, column=3, **grid_opt)
 
 #=====================
-ttk.Button(win, text="[ O programie: ]", command=About).grid(row=5,column=0, columnspan = 1 )
-ttk.Button(win, text="[    Zamknij   ]", command=Quit).grid(row=5, column=1, columnspan = 1)
-ttk.Button(win, text="[ Import CSV ]", command=assign_data).grid(row=5, column=2, columnspan=1)
-ttk.Button(win, text="[ Change Data ]", command=openTopLevel).grid(row=5, column=3, columnspan=1)
 
-
-
-
+ttk.Button(win, text="[ Close   ]", command=Quit).grid(row=5, column=3, columnspan = 1)
+ttk.Button(win, text="[ Import CSV ]", command=assign_data).grid(row=5, column=0, columnspan=1)
+ttk.Button(win, text="[ Change Data ]", command=openTopLevel).grid(row=3, column=3, columnspan=1)
 
 win.bind("<KeyPress-Escape>", Quit)
 win.protocol("WM_DELETE_WINDOW", Quit)
+
 # start interface:
 assign_data()
 win.mainloop()
-## print(f"(Main)data = {data}") # global variable data is known to all madules

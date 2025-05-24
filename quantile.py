@@ -1,8 +1,8 @@
 import pandas as pd
-from tkinter import messagebox
 
 
 def click_fun(win, Mlabel, df, name):
+<<<<<<< HEAD
     try:
         quantile1 = df[name].quantile(0.25)
         quantile3 = df[name].quantile(0.75)
@@ -13,3 +13,8 @@ def click_fun(win, Mlabel, df, name):
 
     except Exception as e:
         messagebox.showerror("Błąd", f"Wystąpił problem: {e}")
+=======
+    q1 = df[name].quantile(0.25).round(2)
+    q3 = df[name].quantile(0.75).round(2)
+    Mlabel.config(text=f"1st quantile (25%): {q1} \n3rd quantile (75%): {q3} of {name}")
+>>>>>>> main
