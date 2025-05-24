@@ -98,8 +98,8 @@ ttk.Button(button_box, text="Mean", width=12 , state="disabled", command=lambda:
 ttk.Button(button_box, text="Bollinger", width=12 , state="disabled", command=lambda: P1Tem12_bollinger.click_fun(win, Mlabel, data, name.get())).grid(row=3, column=2, **grid_opt)
 ttk.Button(button_box, text="Plot", width=12 , state="disabled", command=lambda: P1_Tem12_plot.click_fun(data, name.get())).grid(row=1, column=0, **grid_opt)
 ttk.Button(button_box, text="Scatterplot", width=12 , state="disabled", command=lambda: P1Tem12_scatterplot.click_fun(data, name.get())).grid(row=1, column=1, **grid_opt)
-ttk.Button(button_box, text="Barplot", width=12 , state="disabled", command=lambda: barplot.click_fun(data, name.get())).grid(row=1, column=2, **grid_opt)
-ttk.Button(button_box, text="Histogram", width=12 , state="disabled", command=lambda: histogram.click_fun(data, name.get())).grid(row=1, column=3, **grid_opt)
+ttk.Button(button_box, text="Barplot", width=12 , state="disabled", command=lambda: P1Tem12_barplot.click_fun(data, name.get())).grid(row=1, column=2, **grid_opt)
+ttk.Button(button_box, text="Histogram", width=12 , state="disabled", command=lambda: P1Tem12_histogram.click_fun(data, name.get())).grid(row=1, column=3, **grid_opt)
 
 ttk.Button(button_box, text="Close", width=12,  command=Quit).grid(row=5, column=3, columnspan = 1, **grid_opt)
 ttk.Button(button_box, text="Load data", width=12,  command=assign_data).grid(row=5, column=0, columnspan=1, **grid_opt)
