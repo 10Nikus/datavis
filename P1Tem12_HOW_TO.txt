@@ -27,7 +27,7 @@ Wymagania:
 Uruchamianie:
 -------------
 1. Upewnienie się, że zainstalowane zostały wymagane biblioteki.
-2. Uruchomienie pliku główny programu (main.py)
+2. Uruchomienie pliku głównego programu (P1Tem12.py)
 
 
 Dane wejściowe:
@@ -37,10 +37,10 @@ Program wykorzystuje plik CSV z danymi giełdowymi. Przy pierwszym uruchomieniu 
 
 Obsługa programu:
 -----------------
-1. "Load data" – wybierz jeden z ww. plików, aby załadować dane. Pliki znajdują się w folderze "P1Tem12_data".
+1. "Load data" – należy wybrać jeden z ww. plików, aby załadować dane. Pliki znajdują się w folderze "P1Tem12_data".
 2. Po załadowaniu dane zostaną wczytane, a pozostałe opcje staną się dostępne.
-3. "Change Data" – wybierz kolumnę (np. „Close”), którą chcesz analizować.
-4. Użyj przycisków z grup statystyki i wykresy:
+3. "Change Data" – należy wybrać kolumnę (np. „Close”) do analizy.
+4. Należy użyć przycisków z grup statystyki i wykresów:
 - Statystyki opisowe: "Count", "Median", "Std", "Min Max", "Quantile", "Mean"
 - Wizualizacje: "Plot", "Scatterplot", "Barplot", "Histogram"
 - Wskaźniki techniczne: "Bollinger"
