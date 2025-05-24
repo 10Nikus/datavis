@@ -17,7 +17,7 @@ import functions.statistic.std as std
 import functions.statistic.max_min as max_min 
 import functions.statistic.quantile as quantile 
 import functions.statistic.mean as mean 
-import functions.bollinger 
+import functions.bollinger  as bollinger
 import functions.plots.plot as plot 
 import functions.plots.scatterplot as scatterplot 
 import functions.plots.barplot as barplot 
